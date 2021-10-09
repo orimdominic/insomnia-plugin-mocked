@@ -1,19 +1,20 @@
 {
-  "name": "insomnia-plugin-variables",
+  "name": "insomnia-plugin-mocked",
   "version": "1.0.0",
-  "description": "Generate random request variable values, like on Postman",
+  "description": "Uses Faker.js to generate mock values in Insomnia requests",
   "main": "dist/app.js",
   "license": "MIT",
   "insomnia": {
-    "name": "Variables",
-    "displayName": "Request Variables for Insomnia",
-    "description": "Generate random request variable valuesn Insomnia, like on Postman.",
+    "name": "mocked",
+    "displayName": "mocked plugin",
+    "description": "Uses Faker.js to generate random mock values in Insomnia requests",
     "publisher": {
       "name": "Orim Dominic Adah",
       "icon": "https://avatars.githubusercontent.com/u/37955249?v=4"
     }
   },
   "devDependencies": {
+    "@types/faker": "^5.5.8",
     "@types/jest": "^27.0.2",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
@@ -30,6 +31,7 @@
   "scripts": {
     "build": "tsc --sourceMap false --declaration false -p ./",
     "start:dev": "nodemon ./src/app.ts",
+    "start": "nodemon ./dist/app.ts",
     "lint": "eslint ./src",
     "format": "prettier --write ./src",
     "test": "jest"
@@ -37,6 +39,7 @@
   "dependencies": {
     "@types/node": "^16.10.3",
     "D": "^1.0.0",
+    "faker": "^5.5.3",
     "nodemon": "^2.0.13",
     "ts-node": "^10.2.1"
   }
