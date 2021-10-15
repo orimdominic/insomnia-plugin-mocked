@@ -1,7 +1,7 @@
 import { Context, TemplateTag } from "./insomnia.lib";
 import * as faker from "faker";
 
-const templateTags: TemplateTag[] = [
+export const templateTags: TemplateTag[] = [
   {
     name: "mocked",
     displayName: "Mocked",
@@ -39,26 +39,35 @@ const templateTags: TemplateTag[] = [
         // Text, Numbers and Colors
         case "abbreviation":
           return faker.hacker.abbreviation();
+
         case "hex_colour":
           return faker.internet.color();
+
         case "colour":
           return faker.commerce.color();
+
         case "integer":
           return faker.datatype.number();
 
         // Internet and IP Addresses
         case "ipv4":
           return faker.internet.ip();
+
         case "ipv6":
           return faker.internet.ipv6();
+
         case "mac_address":
           return faker.internet.mac();
+
         case "alpha_num_password":
           return faker.internet.password();
+
         case "lang_locale_code":
           return faker.random.locale();
+
         case "user_agent":
           return faker.internet.userAgent();
+
         case "semver":
           return faker.system.semver();
         default:
@@ -67,5 +76,3 @@ const templateTags: TemplateTag[] = [
     },
   },
 ];
-
-module.exports = { templateTags };
