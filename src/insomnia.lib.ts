@@ -21,7 +21,9 @@ interface RequestContext {
   removeParameter(name: string): void;
   getBody(): Record<string, unknown>;
   setBody(body: Record<string, unknown>): void;
-  getEnvironmentVariable(name: string): number | string | boolean | Record<string, unknown> | null | undefined;
+  getEnvironmentVariable(
+    name: string
+  ): number | string | boolean | Record<string, unknown> | null | undefined;
   getEnvironment(): Record<string, unknown>;
   setAuthenticationParameter(name: string, value: string): void;
   getAuthentication(): Record<string, unknown>;
@@ -146,7 +148,10 @@ export interface TemplateTag {
       placeholder?: string;
     }>;
   }>;
-  run?: (context: Context, selection: string) => number | string | boolean | Record<string, unknown> | null | undefined;
+  run?: (
+    context: Context,
+    selection: string
+  ) => number | string | boolean | Record<string, unknown> | null | undefined;
   // actions: Array<{
   //   name: string,
   //   icon?: string,
