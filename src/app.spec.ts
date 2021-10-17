@@ -169,11 +169,55 @@ describe("mocked template tags object", () => {
     expect(typeof res).toBe("string");
   });
 
-  it("returns a single name when last_name selected", () => {
+  it("returns a name suffix when name_suffix selected", () => {
     const fn = jest.spyOn(faker.name, "suffix");
 
     const res = templateTag.run
       ? templateTag.run(mockContext, "name_suffix")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns a job area when job_area is selected", () => {
+    const fn = jest.spyOn(faker.name, "jobArea");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "job_area")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns a job descriptor when job_desc is selected", () => {
+    const fn = jest.spyOn(faker.name, "jobDescriptor");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "job_desc")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns a job type when job_type is selected", () => {
+    const fn = jest.spyOn(faker.name, "jobType");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "job_type")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns a job title when job_title is selected", () => {
+    const fn = jest.spyOn(faker.name, "jobTitle");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "job_title")
       : void 0;
 
     expect(fn).toHaveBeenCalled();

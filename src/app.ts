@@ -37,10 +37,10 @@ export const templateTags: TemplateTag[] = [
           { displayName: "Random full name", value: "full_name" },
           { displayName: "Random name prefix", value: "name_prefix" },
           { displayName: "Random name suffix", value: "name_suffix" },
-          // { displayName: "Random semantic version number", value: "semver" },
-          // { displayName: "Random semantic version number", value: "semver" },
-          // { displayName: "Random semantic version number", value: "semver" },
-          // { displayName: "Random semantic version number", value: "semver" },
+          { displayName: "Random job area", value: "job_area" },
+          { displayName: "Random job descriptor", value: "job_desc" },
+          { displayName: "Random job type", value: "job_type" },
+          { displayName: "Random job title", value: "job_title" },
           // { displayName: "Random semantic version number", value: "semver" },
         ],
       },
@@ -97,6 +97,20 @@ export const templateTags: TemplateTag[] = [
 
         case "name_suffix":
           return faker.name.suffix();
+
+        // Profession
+        case "job_area":
+          return faker.name.jobArea();
+
+        case "job_desc":
+          return faker.name.jobDescriptor();
+
+        case "job_type":
+          return faker.name.jobType();
+
+        case "job_title":
+          return faker.name.jobTitle();
+
         default:
           return "";
       }
