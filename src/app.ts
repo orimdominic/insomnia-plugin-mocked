@@ -47,6 +47,20 @@ export const templateTags: TemplateTag[] = [
           { displayName: "Random country code", value: "country_code" },
           { displayName: "Random longitude", value: "longitude" },
           { displayName: "Random latitude", value: "latitude" },
+          {
+            displayName: "Random bank account - 8 digits",
+            value: "bank_account_8_digit",
+          },
+          {
+            displayName: "Random bank accout IBAN",
+            value: "bank_account_iban",
+          },
+          {
+            displayName: "Random bank identifier code",
+            value: "bank_identifier_code",
+          },
+          { displayName: "Random currency code", value: "currency_code" },
+          { displayName: "Random bitcoin address", value: "bitcoin_address" },
         ],
       },
     ],
