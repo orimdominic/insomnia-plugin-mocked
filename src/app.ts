@@ -18,6 +18,7 @@ export const templateTags: TemplateTag[] = [
           { displayName: "Random hex colour", value: "hex_colour" },
           { displayName: "Random colour", value: "colour" },
           { displayName: "Random integer", value: "integer" },
+          { displayName: "Random phrase", value: "phrase" },
           { displayName: "Random IPV4", value: "ipv4" },
           { displayName: "Random IPV6", value: "ipv6" },
           { displayName: "Random MAC address", value: "mac_address" },
@@ -31,7 +32,6 @@ export const templateTags: TemplateTag[] = [
           },
           { displayName: "Random user agent", value: "user_agent" },
           { displayName: "Random semantic version number", value: "semver" },
-          //
           { displayName: "Random first name", value: "first_name" },
           { displayName: "Random last name", value: "last_name" },
           { displayName: "Random full name", value: "full_name" },
@@ -61,6 +61,12 @@ export const templateTags: TemplateTag[] = [
           },
           { displayName: "Random currency code", value: "currency_code" },
           { displayName: "Random bitcoin address", value: "bitcoin_address" },
+          { displayName: "Random future date", value: "date_future" },
+          { displayName: "Random past date", value: "date_past" },
+          { displayName: "Random weekday", value: "weekday" },
+          { displayName: "Random month", value: "month" },
+          { displayName: "Random lorem sentence", value: "lorem_sentence" },
+          { displayName: "Random lorem paragraph", value: "lorem_paragraph" },
         ],
       },
     ],
@@ -78,6 +84,9 @@ export const templateTags: TemplateTag[] = [
 
         case "integer":
           return faker.datatype.number();
+
+        case "phrase":
+          return faker.hacker.phrase();
 
         // Internet and IP Addresses
         case "ipv4":
@@ -207,6 +216,26 @@ export const templateTags: TemplateTag[] = [
 
         case "bitcoin_address":
           return faker.finance.bitcoinAddress();
+
+        // Dates
+        case "date_future":
+          return faker.date.future();
+
+        case "date_past":
+          return faker.date.past();
+
+        case "weekday":
+          return faker.date.weekday();
+
+        case "month":
+          return faker.date.month();
+
+        // Lorem Ipsum
+        case "lorem_sentence":
+          return faker.lorem.sentence();
+
+        case "lorem_paragraph":
+          return faker.lorem.paragraph();
 
         default:
           return "";

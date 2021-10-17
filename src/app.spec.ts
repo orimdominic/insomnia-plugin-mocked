@@ -1,7 +1,13 @@
 import { Context } from "./insomnia.lib";
 import * as faker from "faker";
 import { templateTags } from "./app";
-import { isDataURI, isNumberString, isURL } from "class-validator";
+import {
+  isDataURI,
+  isDate,
+  isDateString,
+  isNumberString,
+  isURL,
+} from "class-validator";
 
 describe("mocked template tags object", () => {
   const [templateTag] = templateTags;
@@ -53,6 +59,16 @@ describe("mocked template tags object", () => {
 
     expect(fn).toHaveBeenCalled();
     expect(typeof res).toBe("number");
+  });
+
+  it("returns a random phrase when phrase is selected", () => {
+    const fn = jest.spyOn(faker.hacker, "phrase");
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "phrase")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
   });
 
   it("returns an ipv4 address when ipv4 is selected", () => {
@@ -491,7 +507,7 @@ describe("mocked template tags object", () => {
     expect(typeof res).toBe("string");
   });
 
-  it("returns an bank identifier code when bank_identifier_code is selected", () => {
+  it("returns a bank identifier code when bank_identifier_code is selected", () => {
     const fn = jest.spyOn(faker.finance, "bic");
 
     const res = templateTag.run
@@ -502,7 +518,7 @@ describe("mocked template tags object", () => {
     expect(typeof res).toBe("string");
   });
 
-  it("returns an currency code when currency_code is selected", () => {
+  it("returns a currency code when currency_code is selected", () => {
     const fn = jest.spyOn(faker.finance, "currencyCode");
 
     const res = templateTag.run
@@ -513,11 +529,79 @@ describe("mocked template tags object", () => {
     expect(typeof res).toBe("string");
   });
 
-  it("returns an bitcoin address when bitcoin_address is selected", () => {
+  it("returns a bitcoin address when bitcoin_address is selected", () => {
     const fn = jest.spyOn(faker.finance, "bitcoinAddress");
 
     const res = templateTag.run
       ? templateTag.run(mockContext, "bitcoin_address")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns a future date when date_future is selected", () => {
+    const fn = jest.spyOn(faker.date, "future");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "date_future")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(isDate(res)).toBe(true);
+    expect(new Date().getTime() < new Date(res as Date).getTime());
+  });
+
+  it("returns a past date when date is selected", () => {
+    const fn = jest.spyOn(faker.date, "past");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "date_past")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(isDate(res)).toBe(true);
+    expect(new Date().getTime() > new Date(res as Date).getTime());
+  });
+
+  it("returns a weekday when weekday is selected", () => {
+    const fn = jest.spyOn(faker.date, "weekday");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "weekday")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns a month when month is selected", () => {
+    const fn = jest.spyOn(faker.date, "month");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "month")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns a lorem text when lorem_sentence is selected", () => {
+    const fn = jest.spyOn(faker.lorem, "sentence");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "lorem_sentence")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns a lorem paragraph when lorem_paragraph is selected", () => {
+    const fn = jest.spyOn(faker.lorem, "paragraph");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "lorem_paragraph")
       : void 0;
 
     expect(fn).toHaveBeenCalled();

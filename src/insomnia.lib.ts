@@ -151,7 +151,14 @@ export interface TemplateTag {
   run?: (
     context: Context,
     selection: string
-  ) => number | string | boolean | Record<string, unknown> | null | undefined;
+  ) =>
+    | number
+    | string
+    | boolean
+    | Record<string, unknown>
+    | null
+    | Date
+    | undefined;
   // actions: Array<{
   //   name: string,
   //   icon?: string,
