@@ -178,6 +178,22 @@ export const templateTags: TemplateTag[] = [
         case "image_data_uri":
           return faker.image.dataUri();
 
+        // Finance
+        case "bank_account_8_digit":
+          return faker.finance.account();
+
+        case "bank_account_iban":
+          return faker.finance.iban();
+
+        case "bank_identifier_code":
+          return faker.finance.bic();
+
+        case "currency_code":
+          return faker.finance.currencyCode();
+
+        case "bitcoin_address":
+          return faker.finance.bitcoinAddress();
+
         default:
           return "";
       }

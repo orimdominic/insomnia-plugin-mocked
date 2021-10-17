@@ -1,7 +1,7 @@
 import { Context } from "./insomnia.lib";
 import * as faker from "faker";
 import { templateTags } from "./app";
-import { isDataURI, isURL } from "class-validator";
+import { isDataURI, isNumberString, isURL } from "class-validator";
 
 describe("mocked template tags object", () => {
   const [templateTag] = templateTags;
@@ -466,6 +466,62 @@ describe("mocked template tags object", () => {
     expect(fn).toHaveBeenCalled();
     expect(typeof res).toBe("string");
     expect(isDataURI(typeof res === "string" ? res : "")).toBe(true);
+  });
+
+  it("returns an 8-digit bank account string when bank_account_8_digit is selected", () => {
+    const fn = jest.spyOn(faker.finance, "account");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "bank_account_8_digit")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(isNumberString(typeof res === "string" ? res : "")).toBe(true);
+    expect(typeof res === "string" ? res.length : undefined).toBe(8);
+  });
+
+  it("returns an IBAN string when bank_account_iban is selected", () => {
+    const fn = jest.spyOn(faker.finance, "iban");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "bank_account_iban")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns an bank identifier code when bank_identifier_code is selected", () => {
+    const fn = jest.spyOn(faker.finance, "bic");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "bank_identifier_code")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns an currency code when currency_code is selected", () => {
+    const fn = jest.spyOn(faker.finance, "currencyCode");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "currency_code")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns an bitcoin address when bitcoin_address is selected", () => {
+    const fn = jest.spyOn(faker.finance, "bitcoinAddress");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "bitcoin_address")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
   });
 
   it("returns an empty string when nothing is selected", () => {
