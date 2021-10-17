@@ -1,5 +1,18 @@
 import { Context, TemplateTag } from "./insomnia.lib";
-import * as faker from "faker";
+import {
+  date,
+  lorem,
+  hacker,
+  internet,
+  commerce,
+  datatype,
+  random,
+  system,
+  name,
+  address,
+  image,
+  finance,
+} from "faker";
 
 export const templateTags: TemplateTag[] = [
   {
@@ -74,168 +87,168 @@ export const templateTags: TemplateTag[] = [
       switch (selection) {
         // Text, Numbers and Colors
         case "abbreviation":
-          return faker.hacker.abbreviation();
+          return hacker.abbreviation();
 
         case "hex_colour":
-          return faker.internet.color();
+          return internet.color();
 
         case "colour":
-          return faker.commerce.color();
+          return commerce.color();
 
         case "integer":
-          return faker.datatype.number();
+          return datatype.number();
 
         case "phrase":
-          return faker.hacker.phrase();
+          return hacker.phrase();
 
         // Internet and IP Addresses
         case "ipv4":
-          return faker.internet.ip();
+          return internet.ip();
 
         case "ipv6":
-          return faker.internet.ipv6();
+          return internet.ipv6();
 
         case "mac_address":
-          return faker.internet.mac();
+          return internet.mac();
 
         case "alpha_num_password":
-          return faker.internet.password();
+          return internet.password();
 
         case "lang_locale_code":
-          return faker.random.locale();
+          return random.locale();
 
         case "user_agent":
-          return faker.internet.userAgent();
+          return internet.userAgent();
 
         case "semver":
-          return faker.system.semver();
+          return system.semver();
 
         // Names
         case "first_name":
-          return faker.name.firstName();
+          return name.firstName();
 
         case "last_name":
-          return faker.name.lastName();
+          return name.lastName();
 
         case "full_name":
-          return `${faker.name.firstName()} ${faker.name.lastName()}`;
+          return `${name.firstName()} ${name.lastName()}`;
 
         case "name_prefix":
-          return faker.name.prefix();
+          return name.prefix();
 
         case "name_suffix":
-          return faker.name.suffix();
+          return name.suffix();
 
         // Profession
         case "job_area":
-          return faker.name.jobArea();
+          return name.jobArea();
 
         case "job_desc":
-          return faker.name.jobDescriptor();
+          return name.jobDescriptor();
 
         case "job_type":
-          return faker.name.jobType();
+          return name.jobType();
 
         case "job_title":
-          return faker.name.jobTitle();
+          return name.jobTitle();
 
         // Address and Location
         case "city":
-          return faker.address.city();
+          return address.city();
 
         case "street_address":
-          return faker.address.streetAddress();
+          return address.streetAddress();
 
         case "country":
-          return faker.address.country();
+          return address.country();
 
         case "country_code":
-          return faker.address.countryCode();
+          return address.countryCode();
 
         case "longitude":
-          return faker.address.longitude();
+          return address.longitude();
 
         case "latitude":
-          return faker.address.latitude();
+          return address.latitude();
 
         // Images
         case "image_avatar":
-          return faker.image.avatar();
+          return image.avatar();
 
         case "image_random":
-          return faker.image.imageUrl();
+          return image.imageUrl();
 
         case "image_abstract":
-          return faker.image.abstract();
+          return image.abstract();
 
         case "image_animal":
-          return faker.image.animals();
+          return image.animals();
 
         case "image_business":
-          return faker.image.business();
+          return image.business();
 
         case "image_cat":
-          return faker.image.cats();
+          return image.cats();
 
         case "image_city":
-          return faker.image.city();
+          return image.city();
 
         case "image_food":
-          return faker.image.food();
+          return image.food();
 
         case "image_fashion":
-          return faker.image.fashion();
+          return image.fashion();
 
         case "image_people":
-          return faker.image.people();
+          return image.people();
 
         case "image_nature":
-          return faker.image.nature();
+          return image.nature();
 
         case "image_sport":
-          return faker.image.sports();
+          return image.sports();
 
         case "image_transport":
-          return faker.image.transport();
+          return image.transport();
 
         case "image_data_uri":
-          return faker.image.dataUri();
+          return image.dataUri();
 
         // Finance
         case "bank_account_8_digit":
-          return faker.finance.account();
+          return finance.account();
 
         case "bank_account_iban":
-          return faker.finance.iban();
+          return finance.iban();
 
         case "bank_identifier_code":
-          return faker.finance.bic();
+          return finance.bic();
 
         case "currency_code":
-          return faker.finance.currencyCode();
+          return finance.currencyCode();
 
         case "bitcoin_address":
-          return faker.finance.bitcoinAddress();
+          return finance.bitcoinAddress();
 
         // Dates
         case "date_future":
-          return faker.date.future();
+          return date.future();
 
         case "date_past":
-          return faker.date.past();
+          return date.past();
 
         case "weekday":
-          return faker.date.weekday();
+          return date.weekday();
 
         case "month":
-          return faker.date.month();
+          return date.month();
 
         // Lorem Ipsum
         case "lorem_sentence":
-          return faker.lorem.sentence();
+          return lorem.sentence();
 
         case "lorem_paragraph":
-          return faker.lorem.paragraph();
+          return lorem.paragraph();
 
         default:
           return "";

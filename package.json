@@ -30,7 +30,7 @@
     "typescript": "^4.4.3"
   },
   "scripts": {
-    "build": "tsc --sourceMap false --declaration false -p ./",
+    "build": "rm -rf dist && tsc --sourceMap false --declaration false -p ./",
     "start:dev": "nodemon ./src/app.ts",
     "start": "nodemon ./dist/app.ts",
     "lint": "eslint ./src",
