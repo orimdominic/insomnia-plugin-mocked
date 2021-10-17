@@ -135,6 +135,49 @@ export const templateTags: TemplateTag[] = [
         case "latitude":
           return faker.address.latitude();
 
+        // Images
+        case "image_avatar":
+          return faker.image.avatar();
+
+        case "image_random":
+          return faker.image.imageUrl();
+
+        case "image_abstract":
+          return faker.image.abstract();
+
+        case "image_animal":
+          return faker.image.animals();
+
+        case "image_business":
+          return faker.image.business();
+
+        case "image_cat":
+          return faker.image.cats();
+
+        case "image_city":
+          return faker.image.city();
+
+        case "image_food":
+          return faker.image.food();
+
+        case "image_fashion":
+          return faker.image.fashion();
+
+        case "image_people":
+          return faker.image.people();
+
+        case "image_nature":
+          return faker.image.nature();
+
+        case "image_sport":
+          return faker.image.sports();
+
+        case "image_transport":
+          return faker.image.transport();
+
+        case "image_data_uri":
+          return faker.image.dataUri();
+
         default:
           return "";
       }

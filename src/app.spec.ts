@@ -1,6 +1,7 @@
 import { Context } from "./insomnia.lib";
 import * as faker from "faker";
 import { templateTags } from "./app";
+import { isDataURI, isURL } from "class-validator";
 
 describe("mocked template tags object", () => {
   const [templateTag] = templateTags;
@@ -286,6 +287,185 @@ describe("mocked template tags object", () => {
 
     expect(fn).toHaveBeenCalled();
     expect(typeof res).toBe("string");
+  });
+
+  it("returns a latitude when latitude is selected", () => {
+    const fn = jest.spyOn(faker.address, "latitude");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "latitude")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns an avatar image url when image_avatar is selected", () => {
+    const fn = jest.spyOn(faker.image, "avatar");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "image_avatar")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+    expect(isURL(typeof res === "string" ? res : "")).toBe(true);
+  });
+
+  it("returns a random image url when image_random is selected", () => {
+    const fn = jest.spyOn(faker.image, "imageUrl");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "image_random")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+    expect(isURL(typeof res === "string" ? res : "")).toBe(true);
+  });
+
+  it("returns an abstract image url when image_abstract is selected", () => {
+    const fn = jest.spyOn(faker.image, "abstract");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "image_abstract")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+    expect(isURL(typeof res === "string" ? res : "")).toBe(true);
+  });
+
+  it("returns an animal image url when image_animal is selected", () => {
+    const fn = jest.spyOn(faker.image, "animals");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "image_animal")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+    expect(isURL(typeof res === "string" ? res : "")).toBe(true);
+  });
+
+  it("returns a business image url when image_business is selected", () => {
+    const fn = jest.spyOn(faker.image, "business");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "image_business")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+    expect(isURL(typeof res === "string" ? res : "")).toBe(true);
+  });
+
+  it("returns a cat image url when image_cat is selected", () => {
+    const fn = jest.spyOn(faker.image, "cats");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "image_cat")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+    expect(isURL(typeof res === "string" ? res : "")).toBe(true);
+  });
+
+  it("returns a city image url when image_city is selected", () => {
+    const fn = jest.spyOn(faker.image, "city");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "image_city")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+    expect(isURL(typeof res === "string" ? res : "")).toBe(true);
+  });
+
+  it("returns a food image url when image_food is selected", () => {
+    const fn = jest.spyOn(faker.image, "food");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "image_food")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+    expect(isURL(typeof res === "string" ? res : "")).toBe(true);
+  });
+
+  it("returns a fashion image url when image_fashion is selected", () => {
+    const fn = jest.spyOn(faker.image, "fashion");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "image_fashion")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+    expect(isURL(typeof res === "string" ? res : "")).toBe(true);
+  });
+
+  it("returns a people image url when image_people is selected", () => {
+    const fn = jest.spyOn(faker.image, "people");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "image_people")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+    expect(isURL(typeof res === "string" ? res : "")).toBe(true);
+  });
+
+  it("returns a nature image url when image_nature is selected", () => {
+    const fn = jest.spyOn(faker.image, "nature");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "image_nature")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+    expect(isURL(typeof res === "string" ? res : "")).toBe(true);
+  });
+
+  it("returns a sport image url when image_sport is selected", () => {
+    const fn = jest.spyOn(faker.image, "sports");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "image_sport")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+    expect(isURL(typeof res === "string" ? res : "")).toBe(true);
+  });
+
+  it("returns a transport image url when image_transport is selected", () => {
+    const fn = jest.spyOn(faker.image, "transport");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "image_transport")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+    expect(isURL(typeof res === "string" ? res : "")).toBe(true);
+  });
+
+  it("returns an image data uri when image_data_uri is selected", () => {
+    const fn = jest.spyOn(faker.image, "dataUri");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "image_data_uri")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+    expect(isDataURI(typeof res === "string" ? res : "")).toBe(true);
   });
 
   it("returns an empty string when nothing is selected", () => {
