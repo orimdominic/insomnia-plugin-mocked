@@ -41,7 +41,12 @@ export const templateTags: TemplateTag[] = [
           { displayName: "Random job descriptor", value: "job_desc" },
           { displayName: "Random job type", value: "job_type" },
           { displayName: "Random job title", value: "job_title" },
-          // { displayName: "Random semantic version number", value: "semver" },
+          { displayName: "Random city", value: "city" },
+          { displayName: "Random street address", value: "street_address" },
+          { displayName: "Random country", value: "country" },
+          { displayName: "Random country code", value: "country_code" },
+          { displayName: "Random longitude", value: "longitude" },
+          { displayName: "Random latitude", value: "latitude" },
         ],
       },
     ],
@@ -110,6 +115,25 @@ export const templateTags: TemplateTag[] = [
 
         case "job_title":
           return faker.name.jobTitle();
+
+        // Address and Location
+        case "city":
+          return faker.address.city();
+
+        case "street_address":
+          return faker.address.streetAddress();
+
+        case "country":
+          return faker.address.country();
+
+        case "country_code":
+          return faker.address.countryCode();
+
+        case "longitude":
+          return faker.address.longitude();
+
+        case "latitude":
+          return faker.address.latitude();
 
         default:
           return "";

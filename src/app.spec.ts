@@ -224,6 +224,70 @@ describe("mocked template tags object", () => {
     expect(typeof res).toBe("string");
   });
 
+  it("returns a city when city is selected", () => {
+    const fn = jest.spyOn(faker.address, "city");
+
+    const res = templateTag.run ? templateTag.run(mockContext, "city") : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns a street address when street_address is selected", () => {
+    const fn = jest.spyOn(faker.address, "streetAddress");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "street_address")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns a country when country is selected", () => {
+    const fn = jest.spyOn(faker.address, "country");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "country")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns a country code when country_code is selected", () => {
+    const fn = jest.spyOn(faker.address, "countryCode");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "country_code")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns a longitude when longitude is selected", () => {
+    const fn = jest.spyOn(faker.address, "longitude");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "longitude")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns a latitude when latitude is selected", () => {
+    const fn = jest.spyOn(faker.address, "latitude");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "latitude")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
   it("returns an empty string when nothing is selected", () => {
     const res = templateTag.run ? templateTag.run(mockContext, "") : void 0;
 
