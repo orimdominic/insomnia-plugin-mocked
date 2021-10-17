@@ -31,6 +31,17 @@ export const templateTags: TemplateTag[] = [
           },
           { displayName: "Random user agent", value: "user_agent" },
           { displayName: "Random semantic version number", value: "semver" },
+          //
+          { displayName: "Random first name", value: "first_name" },
+          { displayName: "Random last name", value: "last_name" },
+          { displayName: "Random full name", value: "full_name" },
+          { displayName: "Random name prefix", value: "name_prefix" },
+          { displayName: "Random name suffix", value: "name_suffix" },
+          // { displayName: "Random semantic version number", value: "semver" },
+          // { displayName: "Random semantic version number", value: "semver" },
+          // { displayName: "Random semantic version number", value: "semver" },
+          // { displayName: "Random semantic version number", value: "semver" },
+          // { displayName: "Random semantic version number", value: "semver" },
         ],
       },
     ],
@@ -70,6 +81,22 @@ export const templateTags: TemplateTag[] = [
 
         case "semver":
           return faker.system.semver();
+
+        // Names
+        case "first_name":
+          return faker.name.firstName();
+
+        case "last_name":
+          return faker.name.lastName();
+
+        case "full_name":
+          return `${faker.name.firstName()} ${faker.name.lastName()}`;
+
+        case "name_prefix":
+          return faker.name.prefix();
+
+        case "name_suffix":
+          return faker.name.suffix();
         default:
           return "";
       }

@@ -100,7 +100,7 @@ describe("mocked template tags object", () => {
     expect(typeof res).toBe("string");
   });
 
-  it("returns a user agent when user agent is selected", () => {
+  it("returns a user agent when user_agent is selected", () => {
     const fn = jest.spyOn(faker.internet, "userAgent");
     const res = templateTag.run
       ? templateTag.run(mockContext, "user_agent")
@@ -119,6 +119,67 @@ describe("mocked template tags object", () => {
     expect(fn).toHaveBeenCalled();
     expect(typeof res).toBe("string");
   });
+
+  it("returns a name when first_name is selected", () => {
+    const fn = jest.spyOn(faker.name, "firstName");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "first_name")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns a name when last_name is selected", () => {
+    const fn = jest.spyOn(faker.name, "lastName");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "last_name")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns two names separated by a space when full_name is selected", () => {
+    const fnFirst = jest.spyOn(faker.name, "firstName");
+    const fnLast = jest.spyOn(faker.name, "lastName");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "full_name")
+      : void 0;
+
+    expect(fnFirst).toHaveBeenCalled();
+    expect(fnLast).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+    expect(typeof res === "string" ? res?.split(" ").length : undefined).toBe(
+      2
+    );
+  });
+
+  it("returns a name prefix when name_prefix is selected", () => {
+    const fn = jest.spyOn(faker.name, "prefix");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "name_prefix")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
+  it("returns a single name when last_name selected", () => {
+    const fn = jest.spyOn(faker.name, "suffix");
+
+    const res = templateTag.run
+      ? templateTag.run(mockContext, "name_suffix")
+      : void 0;
+
+    expect(fn).toHaveBeenCalled();
+    expect(typeof res).toBe("string");
+  });
+
   it("returns an empty string when nothing is selected", () => {
     const res = templateTag.run ? templateTag.run(mockContext, "") : void 0;
 
